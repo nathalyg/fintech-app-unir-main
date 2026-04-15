@@ -22,7 +22,7 @@ services:
 
   # Backend - API Node.js
   backend:
-    image: nathyguaillas/fintech-backend:latest
+    image: nathyguaillas/fintech-backend:v1
     container_name: fintech-backend
     environment:
       NODE_ENV: production
@@ -48,7 +48,7 @@ services:
 
   # Frontend - React con Nginx
   frontend:
-    image: nathyguaillas/fintech-frontend:latest
+    image: nathyguaillas/fintech-frontend:v1
     container_name: fintech-frontend
     environment:
       REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3001}
