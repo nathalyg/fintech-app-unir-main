@@ -14,6 +14,9 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Instalar curl para el healthcheck
+RUN apk add --no-cache curl
+
 # Copiar las dependencias instaladas de la etapa anterior
 COPY --from=dependencies /app/node_modules ./node_modules
 
