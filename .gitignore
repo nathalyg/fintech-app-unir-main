@@ -1,0 +1,45 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Entorno
+.env
+.env.local
+.env.*.local
+.DS_Store
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# Procesos
+.npm
+.eslintcache
+
+# Build
+build/
+dist/
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Base de datos (solo en desarrollo)
+postgres_data/
+
+# OS
+.DS_Store
+Thumbs.db
