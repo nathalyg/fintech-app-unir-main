@@ -53,6 +53,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3001}
     container_name: fintech-frontend
     environment:
       REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3001}
@@ -63,6 +65,7 @@ services:
     networks:
       - fintech-network
     restart: unless-stopped
+
 
 networks:
   fintech-network:

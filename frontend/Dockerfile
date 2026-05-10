@@ -3,6 +3,10 @@ FROM node:18-alpine AS build
 
 WORKDIR /app
 
+# Variable de entorno en build-time para React
+ARG REACT_APP_API_URL=http://localhost:3001
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
 # Copiar archivos de dependencias
 COPY package*.json ./
 
