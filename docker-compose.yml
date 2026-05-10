@@ -10,6 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
+      # Persistencia real de PostgreSQL en volumen Docker
       - postgres_data:/var/lib/postgresql/data
     networks:
       - fintech-network
@@ -54,9 +55,11 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
+        # React toma esta variable en build-time (queda embebida en el JS)
         REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3001}
     container_name: fintech-frontend
     environment:
+      # Variable visible en runtime del contenedor (util para referencia/config)
       REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:3001}
     ports:
       - "80:80"
@@ -73,5 +76,6 @@ networks:
 
 volumes:
   postgres_data:
+    # Volumen local administrado por Docker para mantener datos al recrear contenedores
     driver: local
 
